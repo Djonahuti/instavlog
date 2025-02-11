@@ -23,10 +23,8 @@ import "./globals.css";
 const App = () => {
   return (
     <>
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      {children}
-    </ThemeProvider>
     <main className="flex h-screen">
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Routes>
         {/* public routes */}
         <Route element={<AuthLayout />}>
@@ -49,6 +47,7 @@ const App = () => {
       </Routes>
 
       <Toaster />
+    </ThemeProvider>
     </main>
     </>
   );
