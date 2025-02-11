@@ -25,7 +25,9 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: {
-      "image/*": [".png", ".jpeg", ".jpg"],
+      'image/*': ['.png', '.jpg', '.jpeg', '.svg'],
+      'audio/*': ['.mp3', '.m4a', '.wav', '.flac', '.mpeg'],
+      'video/*': ['.mp4', '.m4v', '.x-m4v', '.avi', '.mov', '.webm', '.avchd', '.wmv']
     },
   });
 
@@ -54,7 +56,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
           <h3 className="base-medium text-light-2 mb-2 mt-6">
             Drag photo here
           </h3>
-          <p className="text-light-4 small-regular mb-6">SVG, PNG, JPG</p>
+          <p className="text-light-4 small-regular mb-6">MP3, MP4, PNG, JPG, WAV, AVI, M4A, FLAC</p>
 
           <Button type="button" className="shad-button_dark_4">
             Select from computer

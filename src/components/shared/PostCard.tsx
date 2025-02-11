@@ -14,6 +14,8 @@ const PostCard = ({ post }: PostCardProps) => {
 
   if (!post.creator) return;
 
+  console.log(post.fileUrl, post.imageUrl);
+
   return (
     <div className="post-card">
       <div className="flex-between">
@@ -69,11 +71,12 @@ const PostCard = ({ post }: PostCardProps) => {
           </ul>
         </div>
 
-        <img
+         <img
           src={post.imageUrl || "/assets/icons/profile-placeholder.svg"}
           alt="post image"
           className="post-card_img"
         />
+
       </Link>
 
       <PostStats post={post} userId={user.id} />
