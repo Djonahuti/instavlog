@@ -54,7 +54,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
           />
 
           <h3 className="base-medium text-light-2 mb-2 mt-6">
-            Drag photo here
+          Drag and drop files here, or click to select files
           </h3>
           <p className="text-light-4 small-regular mb-6">MP3, MP4, PNG, JPG, WAV, AVI, M4A, FLAC</p>
 
