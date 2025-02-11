@@ -11,6 +11,7 @@ import {
   UpdateProfile,
   AllUsers,
 } from "@/_root/pages";
+import { ThemeProvider } from "@/components/theme-provider";
 import AuthLayout from "./_auth/AuthLayout";
 import RootLayout from "./_root/RootLayout";
 import SignupForm from "@/_auth/forms/SignupForm";
@@ -21,6 +22,10 @@ import "./globals.css";
 
 const App = () => {
   return (
+    <>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      {children}
+    </ThemeProvider>
     <main className="flex h-screen">
       <Routes>
         {/* public routes */}
@@ -45,6 +50,7 @@ const App = () => {
 
       <Toaster />
     </main>
+    </>
   );
 };
 
