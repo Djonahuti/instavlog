@@ -4,11 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { useUserContext } from "@/context/AuthContext";
 import { useSignOutAccount } from "@/lib/react-query/queries";
+import { useTheme } from "../theme-provider";
 
 const Topbar = () => {
   const navigate = useNavigate();
   const { user } = useUserContext();
   const { mutate: signOut, isSuccess } = useSignOutAccount();
+  const { theme } = useTheme();
+
+  // Dynamically set logo based on theme
+  const logoSrc = theme === "dark" ? "/assets/images/logo.svg" : "/assets/images/blacklogo.svg";
 
   useEffect(() => {
     if (isSuccess) navigate(0);
@@ -19,7 +24,7 @@ const Topbar = () => {
       <div className="flex-between py-4 px-5">
         <Link to="/" className="flex gap-3 items-center">
           <img
-            src="/assets/images/instavlog.png"
+            src={logoSrc}
             alt="logo"
             width={130}
             height={325}
