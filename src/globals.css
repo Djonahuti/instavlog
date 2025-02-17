@@ -257,6 +257,12 @@
     @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-dark-3 to-transparent rounded-b-[24px] gap-2;
   }
 
+  .mine-dark {
+    @apply border-none placeholder:text-light-4 !important;
+    background-color:  var(--searchbar-bg);
+    color:  var(--searchbar-text-color);
+  }
+
   /* Mine dark-3 */
   .mine-dark-3 {
     background-color:  var(--medark-bg);
@@ -328,7 +334,10 @@
   }
 
   .shad-textarea {
-    @apply h-36 bg-dark-3 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply h-36 rounded-xl border-inherit focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    background-color:  var(--medark-bg);
+    color:  var(--medark-text-color);
+    border-color:  var(--medark-border-color);
   }
 
   /* Button */

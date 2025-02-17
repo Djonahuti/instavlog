@@ -92,7 +92,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               <FormLabel className="shad-form_label">Caption</FormLabel>
               <FormControl>
                 <Textarea
-                  className="shad-textarea custom-scrollbar"
+                  className="explore-search custom-scrollbar"
                   {...field}
                 />
               </FormControl>
@@ -125,7 +125,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
             <FormItem>
               <FormLabel className="shad-form_label">Add Location</FormLabel>
               <FormControl>
-                <Input type="text" className="shad-input" {...field} />
+                <Input type="text" className="explore-search" {...field} />
               </FormControl>
               <FormMessage className="shad-form_message" />
             </FormItem>
@@ -144,7 +144,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 <Input
                   placeholder="Art, Expression, Learn"
                   type="text"
-                  className="shad-input"
+                  className="explore-search"
                   {...field}
                 />
               </FormControl>
