@@ -172,8 +172,8 @@
 
   .explore-search {
     @apply h-12 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
-    background-color:  var(--searchbar-bg);
-    color:  var(--searchbar-text-color);
+    background-color:  var(--searchbar-bg) !important;
+    color:  var(--searchbar-text-color) !important;
   }
 
   /* Home */
@@ -354,7 +354,7 @@
   /* SHADCN COMPONENTS */
   /* Form */
   .shad-form_label {
-    @apply text-white !important;
+    color:  var(--post-card-color);
   }
 
   .shad-form_message {
@@ -362,7 +362,10 @@
   }
 
   .shad-input {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply h-12 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    background-color:  var(--searchbar-bg) !important;
+    color:  var(--medark-text-color) !important;
+    border-color:  var(--medark-border-color) !important;
   }
 
   .shad-textarea {
