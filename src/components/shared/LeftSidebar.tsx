@@ -7,15 +7,35 @@ import { Button } from "@/components/ui/button";
 import { useSignOutAccount } from "@/lib/react-query/queries";
 import { useUserContext, INITIAL_USER } from "@/context/AuthContext";
 import { useTheme } from "../theme-provider";
+import { useState, useEffect } from "react";
+import { ModeToggle } from "../mode-toggle";
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { user, setUser, setIsAuthenticated, isLoading } = useUserContext();
   const { theme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState(theme);
+
+    // Function to determine time-based theme
+    const getTimeBasedTheme = () => {
+      const hours = new Date().getHours();
+      return hours >= 6 && hours < 18 ? "light" : "dark"; // 6AM - 6PM: Light | 6PM - 6AM: Dark
+    };
+  
+    useEffect(() => {
+      if (theme === "system") {
+        setCurrentTheme(getTimeBasedTheme()); // Update the theme based on time
+      } else {
+        setCurrentTheme(theme);
+      }
+    }, [theme]);
 
    // Dynamically set logo based on theme
-   const logoSrc = theme === "dark" ? "/assets/images/logo.svg" : "/assets/images/blacklogo.svg";
+   const logoSrc =
+   currentTheme === "dark"
+     ? "/assets/images/logo.svg"
+     : "/assets/images/blacklogo.svg";
 
   const { mutate: signOut } = useSignOutAccount();
 
@@ -94,6 +114,11 @@ const LeftSidebar = () => {
         <img src="/assets/icons/logout.svg" alt="logout" />
         <p className="small-medium lg:base-medium">Logout</p>
       </Button>
+      
+      <div className="relative size-32 ...">
+        <div className="absolute right-0 bottom-4 size-16 ...">
+        <ModeToggle /></div>
+      </div>
     </nav>
   );
 };

@@ -3,7 +3,6 @@ import { Models } from "appwrite";
 // import { useToast } from "@/components/ui/use-toast";
 import { Loader, PostCard, UserCard } from "@/components/shared";
 import { useGetRecentPosts, useGetUsers } from "@/lib/react-query/queries";
-import { ModeToggle } from "@/components/mode-toggle";
 
 const Home = () => {
   // const { toast } = useToast();
@@ -52,7 +51,7 @@ const Home = () => {
       </div>
 
       <div className="home-creators">
-        <h3 className="h3-bold">Top Creators <span> <ModeToggle /></span></h3>
+        <h3 className="h3-bold">Top Creators <span></span></h3>
         {isUserLoading && !creators ? (
           <Loader />
         ) : (

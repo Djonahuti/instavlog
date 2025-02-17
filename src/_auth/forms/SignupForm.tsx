@@ -13,15 +13,34 @@ import { useCreateUserAccount, useSignInAccount } from "@/lib/react-query/querie
 import { SignupValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/AuthContext";
 import { useTheme } from "@/components/theme-provider";
+import { useEffect, useState } from "react";
 
 const SignupForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
   const { theme } = useTheme();
-
-  // Dynamically set logo based on theme
-  const logoSrc = theme === "dark" ? "/assets/images/logo.svg" : "/assets/images/blacklogo.svg";
+    const [currentTheme, setCurrentTheme] = useState(theme);
+  
+    // Function to determine time-based theme
+    const getTimeBasedTheme = () => {
+      const hours = new Date().getHours();
+      return hours >= 6 && hours < 18 ? "light" : "dark"; // 6AM - 6PM: Light | 6PM - 6AM: Dark
+    };
+  
+    useEffect(() => {
+      if (theme === "system") {
+        setCurrentTheme(getTimeBasedTheme()); // Update the theme based on time
+      } else {
+        setCurrentTheme(theme);
+      }
+    }, [theme]);
+  
+   // Dynamically set logo based on theme
+   const logoSrc =
+   currentTheme === "dark"
+     ? "/assets/images/logo.svg"
+     : "/assets/images/blacklogo.svg";
 
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),

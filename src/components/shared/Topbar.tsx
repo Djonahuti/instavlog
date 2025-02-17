@@ -1,19 +1,38 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "../ui/button";
 import { useUserContext } from "@/context/AuthContext";
 import { useSignOutAccount } from "@/lib/react-query/queries";
 import { useTheme } from "../theme-provider";
+import { ModeToggle } from "../mode-toggle";
 
 const Topbar = () => {
   const navigate = useNavigate();
   const { user } = useUserContext();
   const { mutate: signOut, isSuccess } = useSignOutAccount();
   const { theme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState(theme);
 
-  // Dynamically set logo based on theme
-  const logoSrc = theme === "dark" ? "/assets/images/logo.svg" : "/assets/images/blacklogo.svg";
+  // Function to determine time-based theme
+  const getTimeBasedTheme = () => {
+    const hours = new Date().getHours();
+    return hours >= 6 && hours < 18 ? "light" : "dark"; // 6AM - 6PM: Light | 6PM - 6AM: Dark
+  };
+
+  useEffect(() => {
+    if (theme === "system") {
+      setCurrentTheme(getTimeBasedTheme()); // Update the theme based on time
+    } else {
+      setCurrentTheme(theme);
+    }
+  }, [theme]);
+
+ // Dynamically set logo based on theme
+ const logoSrc =
+ currentTheme === "dark"
+   ? "/assets/images/logo.svg"
+   : "/assets/images/blacklogo.svg";
 
   useEffect(() => {
     if (isSuccess) navigate(0);
@@ -45,6 +64,7 @@ const Topbar = () => {
               className="h-8 w-8 rounded-full"
             />
           </Link>
+          <ModeToggle />
         </div>
       </div>
     </section>
