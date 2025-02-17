@@ -103,7 +103,7 @@ const Profile = () => {
           <Link
             to={`/profile/${id}`}
             className={`profile-tab rounded-l-lg ${
-              pathname === `/profile/${id}` && "!bg-dark-3"
+              pathname === `/profile/${id}` && "!mine-dark-3"
             }`}>
             <img
               src={"/assets/icons/posts.svg"}
@@ -116,7 +116,7 @@ const Profile = () => {
           <Link
             to={`/profile/${id}/liked-posts`}
             className={`profile-tab rounded-r-lg ${
-              pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
+              pathname === `/profile/${id}/liked-posts` && "!mine-dark-3"
             }`}>
             <img
               src={"/assets/icons/like.svg"}

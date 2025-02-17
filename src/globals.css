@@ -18,6 +18,12 @@
     --leftsidebar-border-color: #333333; /* Dark mode left side bar */
     --leftsidebar-text-color: #ffffff; /* Dark mode left side bar text */
     --leftsidebar-bg: #09090a; /* Dark mode left side bar background */
+    --searchbar-border-color: #333333; /* Dark mode left side bar */
+    --searchbar-text-color: #ffffff; /* Dark mode left side bar text */
+    --searchbar-bg: #1f1f22; /* Dark mode left side bar background */
+    --medark-border-color: #333333; /* Dark mode left side bar */
+    --medark-text-color: #efefef; /* Dark mode left side bar text */
+    --medark-bg: #101012; /* Dark mode left side bar background */
   }
   
   .light {
@@ -29,6 +35,12 @@
     --leftsidebar-border-color: #f2f8fc; /* Dark mode left side bar */
     --leftsidebar-text-color: #000000; /* Dark mode left side bar text */
     --leftsidebar-bg: #fcfcfc; /* Dark mode left side bar background */
+    --searchbar-border-color: #f2f8fc; /* Dark mode left side bar */
+    --searchbar-text-color: #000000; /* Dark mode left side bar text */
+    --searchbar-bg: #e4e4e7; /* Dark mode left side bar background */
+    --medark-border-color: #f2f8fc; /* Dark mode left side bar */
+    --medark-text-color: #000000; /* Dark mode left side bar text */
+    --medark-bg: #faf9f6; /* Dark mode left side bar background */
   }
 
   body {
@@ -155,7 +167,9 @@
   }
 
   .explore-search {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
+    @apply h-12 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
+    background-color:  var(--searchbar-bg);
+    color:  var(--searchbar-text-color);
   }
 
   /* Home */
@@ -239,6 +253,19 @@
 
   .grid-post_user {
     @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-dark-3 to-transparent rounded-b-[24px] gap-2;
+  }
+
+  /* Searchbar */
+  .mine-dark-3 {
+    background-color:  var(--medark-bg);
+    color:  var(--medark-text-color);
+    border-color:  var(--medark-border-color);
+  }
+
+  /* Left sidebar */
+  .sbar {
+    background-color:  var(--searchbar-bg);
+    border-color:  var(--searchbar-border-color);
   }
 
   /* Left sidebar */
