@@ -12,11 +12,16 @@ import { useToast } from "@/components/ui/use-toast";
 import { SigninValidation } from "@/lib/validation";
 import { useSignInAccount } from "@/lib/react-query/queries";
 import { useUserContext } from "@/context/AuthContext";
+import { useTheme } from "@/components/theme-provider";
 
 const SigninForm = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const { theme } = useTheme();
+
+  // Dynamically set logo based on theme
+  const logoSrc = theme === "dark" ? "/assets/images/logo.svg" : "/assets/images/blacklogo.svg";
 
   // Query
   const { mutateAsync: signInAccount, isLoading } = useSignInAccount();
@@ -54,7 +59,7 @@ const SigninForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/instavlog.png" alt="logo" />
+        <img src={logoSrc} alt="logo" />
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Log in to your account
