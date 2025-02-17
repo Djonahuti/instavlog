@@ -9,8 +9,32 @@
     @apply box-border list-none p-0 m-0 scroll-smooth;
   }
 
+  .dark {
+    --bg-color: #060606; /* Dark mode background */
+    --text-color: #ffffff; /* Dark mode text */
+    --post-card-color: #fdfdfd; /* Dark mode post-card text*/
+    --post-card-bg: #09090a; /* Dark mode post-card */
+    --post-card-border-color: #333333; /* Dark mode post-card border */
+    --leftsidebar-border-color: #333333; /* Dark mode left side bar */
+    --leftsidebar-text-color: #ffffff; /* Dark mode left side bar text */
+    --leftsidebar-bg: #09090a; /* Dark mode left side bar background */
+  }
+  
+  .light {
+    --bg-color: #fdfdfd; /* Light mode background */
+    --text-color: #000000; /* Light mode text */
+    --post-card-color: #060606; /* Dark mode post-card text*/
+    --post-card-bg: #ffffff; /* Dark mode post-card */
+    --post-card-border-color: #e6e6e6; /* Dark mode post-card border */
+    --leftsidebar-border-color: #f2f8fc; /* Dark mode left side bar */
+    --leftsidebar-text-color: #000000; /* Dark mode left side bar text */
+    --leftsidebar-bg: #fcfcfc; /* Dark mode left side bar background */
+  }
+
   body {
-    @apply bg-dark-1 text-white min-h-screen font-inter;
+    @apply  min-h-screen font-inter;
+    background-color: var(--bg-color);
+    color: var(--text-color);
   }
 }
 
@@ -96,16 +120,16 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: #09090a;
+    background: var(--post-card-bg);
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #5c5c7b;
+    background: var(--post-card-border-color);
     border-radius: 50px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #7878a3;
+    background: var(--post-card-border-color);
   }
 
   .common-container {
@@ -219,7 +243,9 @@
 
   /* Left sidebar */
   .leftsidebar {
-    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-dark-2;
+    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] border border-inherit;
+    background-color:  var(--leftsidebar-bg);
+    border-color:  var(--leftsidebar-border-color);
   }
 
   .leftsidebar-link {
@@ -228,7 +254,11 @@
 
   /* Post Card */
   .post-card {
-    @apply bg-dark-2 rounded-3xl border border-dark-4 p-5 lg:p-7 w-full max-w-screen-sm;
+    @apply rounded-3xl p-5 lg:p-7 w-full max-w-screen-sm border border-inherit;
+    background-color:  var(--post-card-bg);
+    border-style: solid !important;
+    border-color:  var(--post-card-border-color);
+    color:  var(--post-card-color);
   }
 
   .post-card_img {
@@ -242,7 +272,9 @@
 
   /* User card */
   .user-card {
-    @apply flex-center flex-col gap-4 border border-dark-4 rounded-[20px] px-5 py-8;
+    @apply flex-center flex-col gap-4 border border-inherit rounded-[20px] px-5 py-8;
+    border-style: solid !important;
+    border-color:  var(--post-card-border-color);
   }
 }
 

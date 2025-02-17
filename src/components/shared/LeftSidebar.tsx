@@ -6,11 +6,16 @@ import { Loader } from "@/components/shared";
 import { Button } from "@/components/ui/button";
 import { useSignOutAccount } from "@/lib/react-query/queries";
 import { useUserContext, INITIAL_USER } from "@/context/AuthContext";
+import { useTheme } from "../theme-provider";
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { user, setUser, setIsAuthenticated, isLoading } = useUserContext();
+  const { theme } = useTheme();
+
+   // Dynamically set logo based on theme
+   const logoSrc = theme === "dark" ? "/assets/images/logo.svg" : "/assets/images/blacklogo.svg";
 
   const { mutate: signOut } = useSignOutAccount();
 
@@ -29,7 +34,7 @@ const LeftSidebar = () => {
       <div className="flex flex-col gap-11">
         <Link to="/" className="flex gap-3 items-center">
           <img
-            src="/assets/images/instavlog.png"
+            src={logoSrc}
             alt="logo"
             width={170}
             height={36}
