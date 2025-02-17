@@ -21,7 +21,7 @@ interface StabBlockProps {
 const StatBlock = ({ value, label }: StabBlockProps) => (
   <div className="flex-center gap-2">
     <p className="small-semibold lg:body-bold text-primary-500">{value}</p>
-    <p className="small-medium lg:base-medium text-light-2">{label}</p>
+    <p className="small-medium lg:base-medium">{label}</p>
   </div>
 );
 
@@ -116,7 +116,7 @@ const Profile = () => {
           <Link
             to={`/profile/${id}/liked-posts`}
             className={`profile-tab rounded-r-lg ${
-              pathname === `/profile/${id}/liked-posts` && "!mine-dark-3"
+              pathname === `/profile/${id}/liked-posts` && "!mine-prof"
             }`}>
             <img
               src={"/assets/icons/like.svg"}

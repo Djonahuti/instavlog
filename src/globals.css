@@ -25,6 +25,7 @@
     --medark-text-color: #efefef; /* Dark mode left side bar text */
     --medark-bg: #101012; /* Dark mode left side bar background */
     --crname-text-color: #ffffff; /* Dark mode text */
+    --meprof-bg: #101012; /* Dark mode left side bar background */
   }
   
   .light {
@@ -43,6 +44,7 @@
     --medark-text-color: #000000; /* Dark mode left side bar text */
     --medark-bg: #faf9f6; /* Dark mode left side bar background */
     --crname-text-color: #33bbff; /* Dark mode text */
+    --meprof-bg: #faf9f6; /* Dark mode left side bar background */
   }
 
   body {
@@ -193,15 +195,27 @@
   }
 
   .post_details-card {
-    @apply bg-dark-2 w-full max-w-5xl rounded-[30px] flex-col flex xl:flex-row border border-dark-4 xl:rounded-l-[24px];
+    @apply w-full max-w-5xl rounded-[30px] flex-col flex xl:flex-row border-inherit xl:rounded-l-[24px];
+    background-color:  var(--post-card-bg);
+    border-style: solid !important;
+    border-color:  var(--post-card-border-color);
+    color:  var(--post-card-color);
   }
 
   .post_details-img {
-    @apply h-80 lg:h-[480px] xl:w-[48%] rounded-t-[30px] xl:rounded-l-[24px] xl:rounded-tr-none object-cover p-5 bg-dark-1;
+    @apply h-80 lg:h-[480px] xl:w-[48%] rounded-t-[30px] xl:rounded-l-[24px] xl:rounded-tr-none object-cover p-5;
+    background-color:  var(--post-card-bg);
+    border-style: solid !important;
+    border-color:  var(--post-card-border-color);
+    color:  var(--post-card-color);
   }
 
   .post_details-info {
-    @apply bg-dark-2 flex flex-col gap-5 lg:gap-7 flex-1 items-start p-8 rounded-[30px];
+    @apply flex flex-col gap-5 lg:gap-7 flex-1 items-start p-8 rounded-[30px];
+    background-color:  var(--post-card-bg);
+    border-style: solid !important;
+    border-color:  var(--post-card-border-color);
+    color:  var(--post-card-color);
   }
 
   .post_details-delete_btn {
@@ -218,7 +232,10 @@
   }
 
   .profile-tab {
-    @apply flex-center gap-3 py-4 w-48 bg-dark-2  transition flex-1 xl:flex-initial;
+    @apply flex-center gap-3 py-4 w-48  transition flex-1 xl:flex-initial;
+    background-color:  var(--meprof-bg);
+    color:  var(--medark-text-color);
+    border-color:  var(--medark-border-color);
   }
 
   /* Saved */
@@ -265,6 +282,13 @@
     @apply border-none placeholder:text-light-4 !important;
     background-color:  var(--searchbar-bg);
     color:  var(--searchbar-text-color);
+  }
+
+  /* Mine prof */
+  .mine-prof {
+    background-color:  var(--meprof-bg);
+    color:  var(--medark-text-color);
+    border-color:  var(--medark-border-color);
   }
 
   /* Mine dark-3 */
