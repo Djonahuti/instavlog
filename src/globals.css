@@ -24,6 +24,7 @@
     --medark-border-color: #333333; /* Dark mode left side bar */
     --medark-text-color: #efefef; /* Dark mode left side bar text */
     --medark-bg: #101012; /* Dark mode left side bar background */
+    --crname-text-color: #ffffff; /* Dark mode text */
   }
   
   .light {
@@ -41,6 +42,7 @@
     --medark-border-color: #f2f8fc; /* Dark mode left side bar */
     --medark-text-color: #000000; /* Dark mode left side bar text */
     --medark-bg: #faf9f6; /* Dark mode left side bar background */
+    --crname-text-color: #33bbff; /* Dark mode text */
   }
 
   body {
@@ -255,17 +257,22 @@
     @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-dark-3 to-transparent rounded-b-[24px] gap-2;
   }
 
-  /* Searchbar */
+  /* Mine dark-3 */
   .mine-dark-3 {
     background-color:  var(--medark-bg);
     color:  var(--medark-text-color);
     border-color:  var(--medark-border-color);
   }
 
-  /* Left sidebar */
+  /* Searchbar */
   .sbar {
     background-color:  var(--searchbar-bg);
     border-color:  var(--searchbar-border-color);
+  }
+
+  /* Creators Name */
+  .crname {
+    color:  var(--crname-text-color);
   }
 
   /* Left sidebar */
