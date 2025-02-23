@@ -3,7 +3,7 @@
     <a href="#" target="_blank">
       <img src="https://github.com/Djonahuti/instavlog/blob/main/public/assets/images/Banner.svg" alt="Project Banner">
     </a>
-  <br />
+  <br /> 
 
   <div>
     <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
