@@ -730,10 +730,6 @@ Assets used in the project are [here](https://github.com/Djonahuti/instavlog/tre
 
 ## <a name="more">🚀 More</a>
 
-    <a href="https://www.figma.com/design/YLIFHT1lzeNugGeQ6NlPWe/InstaVlog-Social-Media-App?node-id=0-1&t=FlZgAEvvs2BctZp2-1" target="_blank">
-  **You'll find the complete UI design here for the project.**
-      <img src="https://github.com/Djonahuti/instavlog/blob/main/public/assets/images/figma.svg" alt="Figma">
-    </a>
 **Follow for more React JS and Next Js Projects**
 
 #
