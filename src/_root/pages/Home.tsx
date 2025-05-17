@@ -3,6 +3,8 @@ import { Models } from "appwrite";
 // import { useToast } from "@/components/ui/use-toast";
 import { Loader, PostCard, UserCard } from "@/components/shared";
 import { useGetRecentPosts, useGetUsers } from "@/lib/react-query/queries";
+import UserTop from "./UserTop";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const Home = () => {
   // const { toast } = useToast();
@@ -34,6 +36,19 @@ const Home = () => {
   return (
     <div className="flex flex-1">
       <div className="home-container">
+        {isUserLoading ? (
+          <Loader />
+        ) : (
+       <ScrollArea className="w-full max-w-full whitespace-nowrap">
+         <div className="flex gap-4 px-4 py-2">
+           {creators?.documents.map((creator) => (
+             <UserTop key={creator?.$id} user={creator} />
+           ))}
+         </div>
+         <ScrollBar orientation="horizontal" />
+       </ScrollArea>
+        )}
+
         <div className="home-posts">
           <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
           {isPostLoading && !posts ? (
